@@ -12,10 +12,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
 
 
 $(document).ready(function(){
+    
+		var pos = 0,
+			slides = $('.slide'),
+			numOfSlides = slides.length;
+
+		function nextSlide() {
+			// `[]` returns a vanilla DOM object from a jQuery object/collection
+			slides[pos].video.stopVideo()
+			slides.eq(pos).animate({ left: '-100%' }, 500);
+			pos = (pos >= numOfSlides - 1 ? 0 : ++pos);
+			slides.eq(pos).css({ left: '100%' }).animate({ left: 0 }, 500);
+		}
+
+		function previousSlide() {
+			slides[pos].video.stopVideo()
+			slides.eq(pos).animate({ left: '100%' }, 500);
+			pos = (pos == 0 ? numOfSlides - 1 : --pos);
+			slides.eq(pos).css({ left: '-100%' }).animate({ left: 0 }, 500);
+		}
+
+		$('.left').click(previousSlide);
+		$('.right').click(nextSlide);
+	})
     
         $("h1").addClass("page-header").animate({
     left: 300,
@@ -28,7 +52,7 @@ $(document).ready(function(){
         $(".box").css("background-image", "url(" + imageUrl + ")");
         $("#flip").click(function(){
         $("#panel").slideDown("slow");
-        $("button").click(function(){
+        $(".button").click(function(){
   $("iframe").hide();
 });
     
@@ -108,8 +132,19 @@ $(document).ready(function(){
 
 <button class="button">button</button>
 <br/>
-
-<iframe class="iframe" width="100" height="100" src="https://www.youtube.com/embed/lsfFitXFLuQ" title="Safest" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-slider">
+    <!-- SLIDE 1 -->
+    <div class="slide">
+        <iframe class="video" src="https://www.youtube.com/embed/lsfFitXFLuQ"></iframe>
+    </div>
+    <!-- SLIDE 2 -->
+    <div class="slide">
+        <iframe class="video" src="https://www.youtube.com/embed/YE7VzlLtp-4?ecver=2&enablejsapi=1"></iframe>
+    </div>
+    <!-- END OF SLIDES -->
+    <div class="slide-arrow left"></div>
+    <div class="slide-arrow right"></div>
+</div>
 
 </div>
 </body>
