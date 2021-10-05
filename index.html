@@ -18,7 +18,7 @@
 $(document).ready(function(){
     
         $("h1").addClass("page-header").animate({
-    left: '250px',
+    left: 300,
     opacity: '0.5',
     height: '150px',
     width: '150px'
@@ -26,9 +26,9 @@ $(document).ready(function(){
       
          var imageUrl = "./background.jpg";
         $(".box").css("background-image", "url(" + imageUrl + ")");
-
         $("#flip").click(function(){
         $("#panel").slideDown("slow");
+        $(".button").css(background-color: rgba(0, 0, 0, 0.3););
   });
 
        
@@ -70,6 +70,16 @@ $(document).ready(function(){
         
 }
 
+ .button {
+  
+         text-align: center;
+         background-color: rgba(0, 0, 0, 0.3);
+         border: solid 1px white;
+         color: white;
+         font-family: "Major Mono Display"
+        
+}
+
         #panel {
         padding: 50px;
         display: none;
@@ -87,6 +97,7 @@ $(document).ready(function(){
 <div id="flip">Click to slide down panel</div>
 <div id="panel">Welcome to the World</div>
 
+<button>Great Button</button>
 
 </div>
 </body>
