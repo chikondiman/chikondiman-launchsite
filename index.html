@@ -18,11 +18,14 @@
 $(document).ready(function(){
     
         $("h1").addClass("page-header");
+            $("h1").mouseenter(function(){
+              $("#h1").fadeOut("slow");
+    });
          var imageUrl = "./background.jpg";
-       $(".box").css("background-image", "url(" + imageUrl + ")");
-     
-       $("#flip").click(function(){
-    $("#panel").slideDown("slow");
+        $(".box").css("background-image", "url(" + imageUrl + ")");
+
+        $("#flip").click(function(){
+        $("#panel").slideDown("slow");
   });
 
        
