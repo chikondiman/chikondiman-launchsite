@@ -17,7 +17,12 @@
 
 $(document).ready(function(){
     
-        $("h1").addClass("page-header");
+        $("h1").addClass("page-header").animate({
+    left: '250px',
+    opacity: '0.5',
+    height: '150px',
+    width: '150px'
+  });;
       
          var imageUrl = "./background.jpg";
         $(".box").css("background-image", "url(" + imageUrl + ")");
